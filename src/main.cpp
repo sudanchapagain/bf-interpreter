@@ -3,12 +3,24 @@
 #include <string>
 #include <vector>
 
+
 class Interpreter {
    public:
-    enum { TapeSize = 30000 };
+    enum {
+        TapeSize = 30000
+    };
 
-    Interpreter(std::vector<unsigned char> prog, std::istream& in, std::ostream& out):
-        program(prog), input(in), output(out), cells(TapeSize, 0), prog_ptr(0), data_ptr(0) {
+    Interpreter(
+        std::vector<unsigned char> prog,
+        std::istream& in,
+        std::ostream& out
+    ):
+        program(prog),
+        input(in),
+        output(out),
+        cells(TapeSize, 0),
+        prog_ptr(0),
+        data_ptr(0) {
     }
 
     bool run() {
@@ -114,7 +126,12 @@ class Interpreter {
     std::size_t data_ptr;
 };
 
-static bool read_program(const std::string& path, std::vector<unsigned char>& out) {
+
+static bool
+read_program(
+    const std::string& path,
+    std::vector<unsigned char>& out
+) {
     std::ifstream file(path.c_str(), std::ios::binary);
     if (!file) return false;
 
@@ -138,9 +155,11 @@ static bool read_program(const std::string& path, std::vector<unsigned char>& ou
     return true;
 }
 
-int main(int argc, char** argv) {
+
+int
+main(int argc, char** argv) {
     if (argc != 2) {
-        std::cerr << "usage: brainfck <file>\n";
+        std::cerr << "usage: bf <file>\n";
         return 1;
     }
 
