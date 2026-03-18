@@ -1,19 +1,21 @@
 Brainfuck Interpreter
 =====================
 
-build
+A simple interpreter for the brainfuck esoteric language.
+
+Build
 -----
 
 ```sh
-clang++ src/main.cpp -o build/bf
+make build
 ```
 
-run
+Run
 ---
 
 ```sh
 ./build/bf <file>
 ```
 
-examples are in programs
+Examples are in `programs/` directory.
 
